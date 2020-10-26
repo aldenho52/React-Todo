@@ -11,10 +11,12 @@ const TodoList = props => {
 
         return (
             <div>
+            <div className='todo-list'>
             {props.todos.map(todo => (
                 <Todo handleToggleItem={props.handleToggleItem} key={todo.id} todo={todo} />
             ))}
-            <button onClick={handleClick}>Clear completed</button>
+            </div>
+            <button className='clear-btn' onClick={handleClick}>Clear completed</button>
             </div>
         )
 }

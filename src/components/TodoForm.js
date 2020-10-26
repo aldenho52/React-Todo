@@ -32,7 +32,8 @@ class TodoForm extends React.Component {
                     name='todo'
                     value={this.state.input}
                 />
-                <button>Add Todo</button>
+                <br></br>
+                <button className='add-btn'>Add Todo</button>
             </form>
         )
     }
