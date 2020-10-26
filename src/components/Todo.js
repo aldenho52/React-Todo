@@ -1,18 +1,16 @@
 import React from 'react'
 
-class Todo extends React.Component {
+const Todo = props => {
 
-    strikeThrough = () => {
-        this.props.handleToggleItem(this.propsprops.todo.id)
+    const strikeThrough = () => {
+        props.handleToggleItem(props.todo.id)
     }
 
-    render() {
         return(
-            <div onClick={this.strikeThrough} className={`item${this.props.todo.purchased ? ' purchased' : ''}`} >
-            <p>{this.props.todo.name}</p>
+            <div onClick={strikeThrough} className={`todo${props.todo.purchased ? ' purchased' : ''}`} >
+            <p>{props.todo.task}</p>
             </div>
         )
-    }
 }
 
 export default Todo

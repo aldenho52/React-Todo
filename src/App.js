@@ -3,7 +3,18 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 
-const todos = []
+const todos = [
+  {
+    task: 'buy groceries',
+    id: Date.now(),
+    completed: false,
+  },
+  {
+    task: 'feed dog',
+    id: 45345435432,
+    completed: false
+  }
+]
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -18,9 +29,18 @@ class App extends React.Component {
     }
   }
 
-  handleToggleItem = (itemID) => {
+  handleToggleItem = (todoID) => {
     this.setState({
-      
+      todos: this.state.todos.map(todo => {
+        if (todo.id === todoID) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          }
+        } else {
+          return todo;
+        }
+      })
     })
   }
 
