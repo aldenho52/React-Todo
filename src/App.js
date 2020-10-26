@@ -18,6 +18,12 @@ class App extends React.Component {
     }
   }
 
+  handleToggleItem = (itemID) => {
+    this.setState({
+      
+    })
+  }
+
   clearTodos = () => {
     this.setState({
       todos: this.state.todos.filter(todo => (
@@ -40,7 +46,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={this.state.todos} clearTodos={this.clearTodos} handleToggleItem={this.handleToggleItem} />
         <TodoForm addTodo={this.addTodo}/>
       </div>
     );
