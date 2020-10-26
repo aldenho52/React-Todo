@@ -3,6 +3,8 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 
+import styles from './components/Todo.css'
+
 const todos = [
   {
     task: 'buy groceries',
