@@ -6,7 +6,7 @@ import Todo from './Todo'
 const TodoList = props => {
     
  let filteredTodos = props.todos.filter((todo) => {
-    return todo.task.indexOf(props.searchInput) !== -1
+    return todo.task.toLowerCase().indexOf(props.searchInput.toLowerCase()) !== -1
     })
 
     const handleClick = () => {
