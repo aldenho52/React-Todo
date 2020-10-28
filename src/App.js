@@ -3,27 +3,9 @@ import React from 'react';
 import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm'
 
-import styles from './components/Todo.css'
-
-const todos = [
-  {
-    task: 'buy groceries',
-    id: Date.now(),
-    completed: false,
-  },
-  {
-    task: 'feed dog',
-    id: 45345435432,
-    completed: false
-  }
-]
+const todos = []
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
-  
   constructor() {
     super()
     this.state = {
@@ -61,6 +43,16 @@ class App extends React.Component {
         id: Date.now(),
         completed: false
       }]
+    })
+  }
+
+  componentDidUpdate() {
+    window.localStorage.setItem('todos', JSON.stringify(this.state.todos))
+  }
+
+  componentDidMount() {
+    this.setState({
+      todos: JSON.parse(window.localStorage.getItem('todos'))
     })
   }
 
