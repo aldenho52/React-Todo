@@ -1,9 +1,13 @@
 // your components will all go in this `component` directory.
 // feel free to change this component.js into TodoList.js
-import React from 'react'
+import React, { useEffect } from 'react'
 import Todo from './Todo'
 
 const TodoList = props => {
+    
+ let filteredTodos = props.todos.filter((todo) => {
+    return todo.task.indexOf(props.searchInput) !== -1
+    })
 
     const handleClick = () => {
         props.clearTodos()
@@ -12,7 +16,7 @@ const TodoList = props => {
         return (
             <div>
             <div className='todo-list'>
-            {props.todos.map(todo => (
+            {filteredTodos.map(todo => (
                 <Todo handleToggleItem={props.handleToggleItem} key={todo.id} todo={todo} />
             ))}
             </div>

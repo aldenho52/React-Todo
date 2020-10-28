@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todos: todos
+      todos: todos,
+      searchInput: ''
     }
   }
 
@@ -46,6 +47,12 @@ class App extends React.Component {
     })
   }
 
+  handleSearchInput = (e) => {
+    this.setState({
+      searchInput: e.target.value
+    })
+  }
+
   componentDidUpdate() {
     window.localStorage.setItem('todos', JSON.stringify(this.state.todos))
   }
@@ -55,12 +62,15 @@ class App extends React.Component {
       todos: JSON.parse(window.localStorage.getItem('todos'))
     })
   }
+  
 
   render() {
     return (
       <div className='App'>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todos={this.state.todos} clearTodos={this.clearTodos} handleToggleItem={this.handleToggleItem} />
+        <input className='searchBar' type='text' placeholder='search todos' onChange={this.handleSearchInput} value={this.state.searchInput} >
+        </input>
+        <TodoList todos={this.state.todos} clearTodos={this.clearTodos} handleToggleItem={this.handleToggleItem} searchInput={this.state.searchInput} />
         <TodoForm addTodo={this.addTodo}/>
       </div>
     );
