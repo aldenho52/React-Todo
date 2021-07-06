@@ -1,0 +1,41 @@
+.todo.completed {
+    text-decoration: line-through;
+    background: greenyellow;
+    transition-duration: 500ms;
+}
+
+body {
+    background: lightgray;
+}
+
+.App {
+    margin: 0 auto;
+    text-align: center
+}
+
+.todo-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.todo {
+    width: 40%;
+    background: coral;
+    border: 3px solid black;
+    margin-bottom: 2%;
+}
+
+.clear-btn {
+    margin: 3%;
+}
+
+.add-btn {
+    margin: 1%;
+}
+
+.searchBar {
+    margin-bottom: 2%;
+}
